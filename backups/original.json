@@ -1,0 +1,217 @@
+{
+  "activeLayer" : 0,
+  "bootloader" : [
+    0,
+    2,
+    1
+  ],
+  "firmware" : [
+    1,
+    1,
+    1
+  ],
+  "keys" : [
+    {
+      "data" : [
+        103
+      ],
+      "encoding" : 0,
+      "index" : 0,
+      "keyType" : 0,
+      "label" : "Num 7",
+      "layer" : 0,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        104
+      ],
+      "encoding" : 0,
+      "index" : 1,
+      "keyType" : 0,
+      "label" : "Num 8",
+      "layer" : 0,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        105
+      ],
+      "encoding" : 0,
+      "index" : 2,
+      "keyType" : 0,
+      "label" : "Num 9",
+      "layer" : 0,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        100
+      ],
+      "encoding" : 0,
+      "index" : 3,
+      "keyType" : 0,
+      "label" : "Num 4",
+      "layer" : 0,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        101
+      ],
+      "encoding" : 0,
+      "index" : 4,
+      "keyType" : 0,
+      "label" : "Num 5",
+      "layer" : 0,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        102
+      ],
+      "encoding" : 0,
+      "index" : 5,
+      "keyType" : 0,
+      "label" : "Num 6",
+      "layer" : 0,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        97
+      ],
+      "encoding" : 0,
+      "index" : 6,
+      "keyType" : 0,
+      "label" : "Num 1",
+      "layer" : 0,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        98
+      ],
+      "encoding" : 0,
+      "index" : 7,
+      "keyType" : 0,
+      "label" : "Num 2",
+      "layer" : 0,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        99
+      ],
+      "encoding" : 0,
+      "index" : 8,
+      "keyType" : 0,
+      "label" : "Num 3",
+      "layer" : 0,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        33
+      ],
+      "encoding" : 0,
+      "index" : 0,
+      "keyType" : 0,
+      "label" : "Page Up",
+      "layer" : 1,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        38
+      ],
+      "encoding" : 0,
+      "index" : 1,
+      "keyType" : 0,
+      "label" : "↑",
+      "layer" : 1,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        34
+      ],
+      "encoding" : 0,
+      "index" : 2,
+      "keyType" : 0,
+      "label" : "Page Down",
+      "layer" : 1,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        37
+      ],
+      "encoding" : 0,
+      "index" : 3,
+      "keyType" : 0,
+      "label" : "←",
+      "layer" : 1,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        40
+      ],
+      "encoding" : 0,
+      "index" : 4,
+      "keyType" : 0,
+      "label" : "↓",
+      "layer" : 1,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        39
+      ],
+      "encoding" : 0,
+      "index" : 5,
+      "keyType" : 0,
+      "label" : "→",
+      "layer" : 1,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        36
+      ],
+      "encoding" : 0,
+      "index" : 6,
+      "keyType" : 0,
+      "label" : "Home",
+      "layer" : 1,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        32
+      ],
+      "encoding" : 0,
+      "index" : 7,
+      "keyType" : 0,
+      "label" : "Space",
+      "layer" : 1,
+      "subtype" : 255
+    },
+    {
+      "data" : [
+        35
+      ],
+      "encoding" : 0,
+      "index" : 8,
+      "keyType" : 0,
+      "label" : "End",
+      "layer" : 1,
+      "subtype" : 255
+    }
+  ],
+  "layerNames" : [
+    "Layer1",
+    "Second"
+  ]
+}
