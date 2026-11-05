@@ -1,15 +1,15 @@
-# Vaydeer JP-1011 для macOS
+# Vaydeer JP-1011 for macOS
 
-Маленькая утилита на Swift. Она читает и меняет клавиши нампада Vaydeer JP-1011
-(9 клавиш, в системе виден как `9-key Smart Keypad`) без официальной программы.
-Раскладка хранится в самом нампаде, поэтому после записи утилита не нужна.
+A small Swift tool that reads and changes the keys of the Vaydeer JP-1011 keypad
+(9 keys, shown by the system as `9-key Smart Keypad`) without the official app.
+The layout is stored in the keypad itself, so you do not need this tool after writing.
 
-Это неофициальный проект. Проверено на одном нампаде: прошивка 1.1.1,
-загрузчик 0.2.1, Mac с чипом Apple. Используйте на свой риск.
+This is an unofficial project. It was tested on one keypad: firmware 1.1.1,
+bootloader 0.2.1, on a Mac with Apple silicon. Use it at your own risk.
 
-## Быстрый старт
+## Quick start
 
-Нужен только Xcode или Command Line Tools. Других зависимостей нет.
+You only need Xcode or the Command Line Tools. There are no other dependencies.
 
 ```bash
 git clone https://github.com/SergiySev/vaydeer-jp1011-macos.git
@@ -27,10 +27,10 @@ swiftc -O vaydeer.swift -o vaydeer
 ./vaydeer dump
 ```
 
-## Текущая раскладка
+## Current layout
 
-Эту раскладку я записал на слой 1. Она не мешает обычным клавиатурам
-и работает в любой раскладке языка.
+This is the layout on layer 1. It does not clash with normal keyboards,
+and it works with any input language.
 
 | | | |
 |---|---|---|
@@ -38,25 +38,25 @@ swiftc -O vaydeer.swift -o vaydeer
 | Ctrl+Opt+Shift+F4 | Ctrl+Opt+Shift+F5 | Ctrl+Opt+Shift+F6 |
 | Ctrl+Opt+Shift+F7 | Ctrl+Opt+Shift+F8 | Ctrl+Opt+Shift+F9 |
 
-Записать её заново (например, после сброса):
+To write it again (for example, after a reset):
 
 ```bash
 M=ctrl+opt+shift; ./vaydeer set layer=0 0=$M+f1 1=$M+f2 2=$M+f3 3=$M+f4 4=$M+f5 5=$M+f6 6=$M+f7 7=$M+f8 8=$M+f9
 ```
 
-## Команды
+## Commands
 
-| Команда | Что делает |
+| Command | What it does |
 |---|---|
-| `./vaydeer info` | Показывает прошивку и слои |
-| `./vaydeer dump` | Показывает все клавиши |
-| `./vaydeer backup файл.json` | Сохраняет все клавиши в файл |
-| `./vaydeer set 0=f1 1=ctrl+f2` | Меняет клавиши на активном слое |
-| `./vaydeer set layer=1 0=f1` | Меняет клавиши на выбранном слое |
-| `./vaydeer restore файл.json` | Возвращает все слои из файла |
-| `./vaydeer restore файл.json 1` | Возвращает один слой из файла |
+| `./vaydeer info` | Shows the firmware and layers |
+| `./vaydeer dump` | Shows all keys |
+| `./vaydeer backup file.json` | Saves all keys to a file |
+| `./vaydeer set 0=f1 1=ctrl+f2` | Changes keys on the active layer |
+| `./vaydeer set layer=1 0=f1` | Changes keys on the chosen layer |
+| `./vaydeer restore file.json` | Restores all layers from a file |
+| `./vaydeer restore file.json 1` | Restores one layer from a file |
 
-Номера клавиш идут по рядам сверху вниз:
+Keys are numbered row by row, from top to bottom:
 
 ```text
 0 1 2
@@ -64,27 +64,27 @@ M=ctrl+opt+shift; ./vaydeer set layer=0 0=$M+f1 1=$M+f2 2=$M+f3 3=$M+f4 4=$M+f5 
 6 7 8
 ```
 
-Слои считаются с нуля: `layer=0` — первый слой, `layer=1` — второй.
+Layers count from zero: `layer=0` is the first layer, `layer=1` is the second.
 
-Названия клавиш: `f1`–`f12`, `num0`–`num9`, `ctrl`, `shift`, `opt`, `cmd`.
-Соединяйте их знаком `+`.
+Key names: `f1`–`f12`, `num0`–`num9`, `ctrl`, `shift`, `opt`, `cmd`.
+Join them with `+`.
 
-Команда `set` перед записью сохраняет файл `vaydeer-backup-<время>.json`.
-После записи утилита читает клавиши обратно и сравнивает их.
+Before writing, `set` saves a file named `vaydeer-backup-<time>.json`.
+After writing, the tool reads the keys back and compares them.
 
-## Вернуть исходные клавиши
+## Restore the original keys
 
-В файле `backups/original.json` лежат настройки, которые были до изменений:
-Num1–Num9 на слое 1, стрелки и Home/End/PgUp/PgDn/Space на слое 2.
+`backups/original.json` holds the settings from before any changes:
+Num1–Num9 on layer 1, and arrows, Home, End, Page Up, Page Down and Space on layer 2.
 
 ```bash
 ./vaydeer restore backups/original.json
 ```
 
-## Проверить клавиши на Mac
+## Test the keys on a Mac
 
-Окно показывает, что macOS получает на самом деле. Оно закрывается,
-когда увидит все 9 сочетаний из текущей раскладки, или через 3 минуты.
+This window shows what macOS really receives. It closes when it has seen all
+9 combinations of the current layout, or after 3 minutes.
 
 ```bash
 swiftc keytest.swift -o keytest
@@ -94,28 +94,28 @@ swiftc keytest.swift -o keytest
 ./keytest keytest.log 180
 ```
 
-## Что важно знать
+## Good to know
 
-- **F13–F24 не работают** на прошивке 1.1.1. Нампад принимает код, но сохраняет
-  `0x00`. Поэтому в раскладке используются сочетания с F1–F9.
-- **Слой пишется только целиком.** Если записать одну клавишу, остальные клавиши
-  слоя стираются. Утилита сама отправляет все 9 клавиш.
-- **Длинные подписи не сохраняются.** Подпись из 18 символов сохранилась пустой,
-  а из 12 символов сохранилась нормально. Утилита обрезает подпись до 12 символов.
-- **Прошивки.** Запись разрешена только для 1.0.2 и 1.1.1 с загрузчиком 0.2.1.
-  На 1.1.1 запись проверена, а 1.0.2 проверяли авторы Vaydeer Studio.
-  Для другой версии сначала проверьте на неактивном слое.
-- **Команда прошивки `0xFC` запрещена.** Утилита отправляет только команды из
-  короткого списка в начале `vaydeer.swift`.
-- Устройство: VID `0x0483`, PID `0x5752`, интерфейс настройки с usage page
-  `0xFF00` и usage `1`.
+- **F13–F24 do not work** on firmware 1.1.1. The keypad accepts the code but
+  stores `0x00`. This is why the layout uses combinations with F1–F9.
+- **A layer can only be written as a whole.** If you write one key, the other
+  keys on that layer are erased. The tool always sends all 9 keys.
+- **Long labels are not stored.** An 18-character label came back empty, and a
+  12-character label was stored correctly. The tool cuts labels to 12 characters.
+- **Firmware.** Writing is allowed only for 1.0.2 and 1.1.1 with bootloader 0.2.1.
+  Writing was tested on 1.1.1, and the Vaydeer Studio authors tested 1.0.2.
+  For any other version, test on an inactive layer first.
+- **The firmware command `0xFC` is blocked.** The tool only sends commands from
+  the short list at the top of `vaydeer.swift`.
+- Device: VID `0x0483`, PID `0x5752`, configuration interface with usage page
+  `0xFF00` and usage `1`.
 
-## Благодарность
+## Credits
 
-Описание протокола взято из проекта
+The protocol description comes from the
 [Vaydeer Studio](https://github.com/callum-baillie/vaydeer-studio-linux)
-(лицензия MIT). Его код здесь не используется.
+project (MIT license). Its code is not used here.
 
-## Лицензия
+## License
 
 MIT
